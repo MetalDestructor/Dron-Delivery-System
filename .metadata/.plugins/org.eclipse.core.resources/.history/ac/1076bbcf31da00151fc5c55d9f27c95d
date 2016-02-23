@@ -1,0 +1,32 @@
+package domain;
+
+public class Battery {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private int batteryUnits;
+	private int chargingRate;
+	
+	public Battery(int batteryUnits, int chargingRate){
+		setBatteryUnits(batteryUnits);
+		setChargingRate(chargingRate);
+	}
+	
+	public int getBatteryUnits() {
+		return batteryUnits;
+	}
+	public void setBatteryUnits(int batteryUnits) {
+		this.batteryUnits = batteryUnits;
+	}
+	public int getChargingRate() {
+		return chargingRate;
+	}
+	public void setChargingRate(int chargingRate) {
+		this.chargingRate = chargingRate;
+	}
+	
+	
+}

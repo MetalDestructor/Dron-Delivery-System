@@ -1,0 +1,60 @@
+package domain;
+
+import java.util.Date;
+
+public class Battery {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private int batteryCapacity;
+	private int batteryLevel;
+	//batteryLevel + for min
+	private float chargingRate;
+	private float dischargingRate;
+	
+
+	public Battery(int batteryCapacity,int batteryLevel, int chargingRate){
+		setBatteryCapacity(batteryCapacity);
+		setBatteryLevel(batteryLevel);
+		setChargingRate(chargingRate);
+	}
+	
+	public int getBatteryLevel() {
+		return batteryLevel;
+	}
+	public void setBatteryLevel(int batteryLevel) {
+		this.batteryLevel = batteryLevel;
+	}
+	public float getChargingRate() {
+		return chargingRate;
+	}
+	
+	public void setChargingRate(float chargingRate) {
+		this.chargingRate = chargingRate;
+	}
+	
+	public float getDischargingRate() {
+		return dischargingRate;
+	}
+
+	public void setDischargingRate(float dischargingRate) {
+		this.dischargingRate = dischargingRate;
+	}
+	
+	public int getBatteryCapacity() {
+		return batteryCapacity;
+	}
+
+	public void setBatteryCapacity(int batteryCapacity) {
+		this.batteryCapacity = batteryCapacity;
+	}
+	
+    public void charge(){
+    	Date current=new Date();
+    	
+	}
+
+}

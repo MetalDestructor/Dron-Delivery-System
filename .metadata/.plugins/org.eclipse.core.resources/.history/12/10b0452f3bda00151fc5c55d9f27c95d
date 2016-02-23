@@ -1,0 +1,92 @@
+package domain;
+
+import java.util.UUID;
+
+import javax.tools.DocumentationTool.Location;
+
+public class Drone {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private String id;
+	private Battery battery;
+	//capacity measured in weight units
+	private float capacity;
+	//charging rate measured in BU per minutes
+	private float chargingRate;
+	
+	private Location location;
+	//String warehouse; to know where to go back?
+
+
+	public Drone(Battery battery, int capacity, Location location){
+		this.id=UUID.randomUUID().toString();
+		setBattery(battery);
+		setCapacity(capacity);
+		chargingRate=battery.getChargingRate();
+		setLocation(location);
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public Battery getBattery() {
+		return battery;
+	}
+	public void setBattery(Battery battery) {
+		this.battery = battery;
+	}
+	public float getCapacity() {
+		return capacity;
+	}
+	public void setCapacity(float capacity) {
+		this.capacity = capacity;
+	}
+	
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+	
+	
+	public void move(Location target){}
+	
+	  @Override
+	    public int hashCode(){
+			return id.hashCode();
+		}
+	    @Override
+		public boolean equals(Object obj){
+	    	 if (obj == null) {
+	    	        return false;
+	    	    }
+	    	    if (!Drone.class.isAssignableFrom(obj.getClass())) {
+	    	        return false;
+	    	    }
+	    	    final Drone other = (Drone) obj;
+	    	    
+	    	    if (this.id != other.id) {
+	    	        return false;
+	    	    }
+	    	    return true;
+	    }
+	    @Override
+		public String toString(){
+	    	StringBuilder builder = new StringBuilder();
+	    	
+	    	builder.append(" DroneID: " + getId());
+	    	builder.append(", Weight capacity: " + getCapacity());
+	    	builder.append(", Battery: " + getBattery().toString());
+	    	builder.append(", Location: " + getLocation());
+	    	builder.append(", chargingRate: " + getBattery().getChargingRate());
+	       	
+	    	return builder.toString();
+	    }
+
+}

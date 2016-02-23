@@ -1,0 +1,9 @@
+package request;
+
+import java.util.Date;
+
+public interface Request {
+
+	public String getId();
+	public Date getTimestamp();	
+}

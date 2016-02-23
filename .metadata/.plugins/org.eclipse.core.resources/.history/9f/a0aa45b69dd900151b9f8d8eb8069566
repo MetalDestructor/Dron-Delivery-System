@@ -1,0 +1,10 @@
+package request;
+
+public abstract class Request {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

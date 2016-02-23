@@ -1,0 +1,16 @@
+package request;
+
+import java.util.Date;
+
+public abstract class Request {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private String id;
+	private Date date;
+	
+	public Request(String id,Date date){}
+}

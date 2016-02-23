@@ -1,0 +1,48 @@
+package domain;
+
+import java.util.UUID;
+
+public class Drone {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private String id;
+	private Battery battery;
+	//capacity measured in weight units
+	private float capacity;
+	//charging rate measured in BU per minutes
+	private float chargingRate;
+	
+	//String warehouse; to know where to go back?
+	public Drone(Battery battery, int capacity){
+		this.id=UUID.randomUUID().toString();
+		setBattery(battery);
+		setCapacity(capacity);
+		chargingRate=battery.getChargingRate();
+	}
+	
+	
+	public Battery getBattery() {
+		return battery;
+	}
+	public void setBattery(Battery battery) {
+		this.battery = battery;
+	}
+	public float getCapacity() {
+		return capacity;
+	}
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+	public int getChargingRate() {
+		return chargingRate;
+	}
+	public void setChargingRate(int chargingRate) {
+		this.chargingRate = chargingRate;
+	}
+	
+		
+}

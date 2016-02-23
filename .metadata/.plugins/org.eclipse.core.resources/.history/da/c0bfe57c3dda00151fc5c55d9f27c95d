@@ -1,0 +1,9 @@
+package managers;
+
+import java.util.List;
+import request.Request;
+
+public class RequestManager {
+
+	List<Request> requests;
+}

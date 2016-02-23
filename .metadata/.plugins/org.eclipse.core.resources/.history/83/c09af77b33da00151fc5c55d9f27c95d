@@ -1,0 +1,45 @@
+package domain;
+
+public class Battery {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private int batteryLevel;
+	private float chargingRate;
+	private float loadingRate;
+	
+	public Battery(int batteryUnits, int chargingRate){
+		setBatteryUnits(batteryUnits);
+		setChargingRate(chargingRate);
+	}
+	
+	public int getBatteryLevel() {
+		return batteryLevel;
+	}
+	public void setBatteryUnits(int batteryLevel) {
+		this.batteryLevel = batteryLevel;
+	}
+	public float getChargingRate() {
+		return chargingRate;
+	}
+	public void setChargingRate(int chargingRate) {
+		this.chargingRate = chargingRate;
+	}
+
+	public float getLoadingRate() {
+		return loadingRate;
+	}
+
+	public void setLoadingRate(float loadingRate) {
+		this.loadingRate = loadingRate;
+	}
+	
+	
+	
+    public void charge(){
+    	
+	}
+}
