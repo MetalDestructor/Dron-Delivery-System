@@ -2,46 +2,60 @@ package domain;
 
 import java.util.UUID;
 
-import javax.tools.DocumentationTool.Location;
-
 public class Drone {
 
 	private String id;
-	private Battery battery;
+	private int batteryCapacity;
+	private int batteryLevel;
 	//capacity measured in weight units
-	private float capacity;
+	private float weightCapacity;
 	//charging rate measured in BU per minutes
-	private float chargingRate;
+	private int chargingRate;
 	
-	//TODO Location
 	private Location location;
 	//String warehouse; to know where to go back?
 
 
-	public Drone(Battery battery, int capacity, Location location){
+	public Drone(int batteryCapacity, int chargingRate, float weightCapacity){
 		this.id=UUID.randomUUID().toString();
-		setBattery(battery);
-		setCapacity(capacity);
-		this.chargingRate=battery.getChargingRate();
-		setLocation(location);
+		setBatteryCapacity(batteryCapacity);
+		this.batteryLevel=batteryCapacity-(int)usedCharge(0);
+		setChargingRate(chargingRate);
+		setWeightCapacity(weightCapacity);
 	}
 	
-	public String getId() {
-		return id;
+	public int getBatteryCapacity() {
+		return batteryCapacity;
 	}
-	public Battery getBattery() {
-		return battery;
+
+	public void setBatteryCapacity(int batteryCapacity) {
+		this.batteryCapacity = batteryCapacity;
 	}
-	public void setBattery(Battery battery) {
-		this.battery = battery;
+
+	public int getBatteryLevel() {
+		return batteryLevel;
 	}
-	public float getCapacity() {
-		return capacity;
+
+	public void setBatteryLevel(int batteryLevel) {
+		this.batteryLevel = batteryLevel;
 	}
-	public void setCapacity(float capacity) {
-		this.capacity = capacity;
+
+	public float getWeightCapacity() {
+		return weightCapacity;
 	}
-	
+
+	public void setWeightCapacity(float weightCapacity) {
+		this.weightCapacity = weightCapacity;
+	}
+
+	public int getChargingRate() {
+		return chargingRate;
+	}
+
+	public void setChargingRate(int chargingRate) {
+		this.chargingRate = chargingRate;
+	}
+
 	public Location getLocation() {
 		return location;
 	}
@@ -49,43 +63,52 @@ public class Drone {
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-	
-	public float getchargingRate(){
-		return this.chargingRate;
+
+	public String getId() {
+		return id;
 	}
-	//TODO 
-	public void move(Location target){}
 	
-	  @Override
-	    public int hashCode(){
-			return id.hashCode();
-		}
-	    @Override
-		public boolean equals(Object obj){
-	    	 if (obj == null) {
-	    	        return false;
-	    	    }
-	    	    if (!Drone.class.isAssignableFrom(obj.getClass())) {
-	    	        return false;
-	    	    }
-	    	    final Drone other = (Drone) obj;
-	    	    
-	    	    if (this.id != other.id) {
-	    	        return false;
-	    	    }
-	    	    return true;
-	    }
-	    @Override
-		public String toString(){
-	    	StringBuilder builder = new StringBuilder();
-	    	builder.append("Drone { ");
-	    	builder.append(" DroneID: " + getId());
-	    	builder.append(", Weight capacity: " + getCapacity());
-	    	builder.append(", " + getBattery().toString());
-	    	builder.append(", Location: " + getLocation());
-	    	builder.append(", chargingRate: " + getBattery().getChargingRate());
-	    	builder.append(" }");
-	    	return builder.toString();
-	    }
+	 public float usedCharge(float distance){
+			return getBatteryLevel()-distance;  	
+	 }
+	 
+	 public int chargingTime(){
+			return (getBatteryCapacity()-getBatteryLevel() )* getChargingRate();
+	    	
+	}
+	 
+
+	@Override
+    public int hashCode(){
+		return id.hashCode();
+    }
+	
+	@Override
+	public boolean equals(Object obj){
+		 if (obj == null) {
+		        return false;
+		    }
+		    if (!Drone.class.isAssignableFrom(obj.getClass())) {
+		        return false;
+		    }
+		    final Drone other = (Drone) obj;
+		    
+		    if (this.id != other.id) {
+		        return false;
+		    }
+		    return true;
+	}
+	@Override
+	public String toString(){
+		StringBuilder builder = new StringBuilder();
+		builder.append("Drone { ");
+		builder.append(" DroneID: " + getId());
+		builder.append(", battery Capacity: " + getBatteryCapacity());
+		builder.append(", battery Level: " + getBatteryLevel());
+		builder.append(", charging Rate: " + getChargingRate());
+		builder.append(", WeightCapacity: " + getWeightCapacity());
+		builder.append(" }");
+		return builder.toString();
+	}
 
 }

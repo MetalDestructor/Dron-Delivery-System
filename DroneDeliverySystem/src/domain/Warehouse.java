@@ -1,15 +1,21 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Warehouse {
 	private Location location;
-	private List<Product> products;
+	private List<Product> products; //map
 	
-	public Warehouse(Location location, List products){
+	public Warehouse(Location location /*, List products*/){
 		this.location = location;
 		this.products = products;
+		//products=new ArrayList<>(); => map 
 	}
+	
+	public void loadProducts(){}
+	public void addProduct(){}
+	
 	
 	public Location getLocation(){
 		return this.location;

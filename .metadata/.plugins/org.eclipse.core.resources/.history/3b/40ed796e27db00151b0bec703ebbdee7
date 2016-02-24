@@ -1,0 +1,86 @@
+package domain;
+
+
+import java.util.UUID;
+
+public class Battery {
+
+	private String id;
+	private int batteryCapacity;
+	private int batteryLevel;
+	//batteryLevel + for min
+	private int chargingRate;
+	
+
+	public Battery(int batteryCapacity, int chargingRate){
+		this.id=UUID.randomUUID().toString();
+		setBatteryCapacity(batteryCapacity);
+		setBatteryLevel(batteryCapacity-(int)usedCharge(0));
+		setChargingRate(chargingRate);
+	}
+	
+	
+	public String getId() {
+		return id;
+	}
+	public int getBatteryLevel() {
+		return batteryLevel;
+	}
+	public void setBatteryLevel(int batteryLevel) {
+		this.batteryLevel = batteryLevel;
+	}
+	public int getChargingRate() {
+		return chargingRate;
+	}
+	
+	public void setChargingRate(int chargingRate) {
+		this.chargingRate = chargingRate;
+	}
+	
+	public int getBatteryCapacity() {
+		return batteryCapacity;
+	}
+
+	public void setBatteryCapacity(int batteryCapacity) {
+		this.batteryCapacity = batteryCapacity;
+	}
+	
+    public int chargingTime(){
+		return (getBatteryCapacity()-getBatteryLevel() )* getChargingRate();
+    	
+	}
+
+    public float usedCharge(float distance){
+		return getBatteryLevel()-distance;  	
+    }
+    
+    @Override
+    public int hashCode(){
+		return id.hashCode();
+	}
+    @Override
+	public boolean equals(Object obj){
+    	 if (obj == null) {
+    	        return false;
+    	    }
+    	    if (!Battery.class.isAssignableFrom(obj.getClass())) {
+    	        return false;
+    	    }
+    	    final Battery other = (Battery) obj;
+    	    
+    	    if (this.id != other.id) {
+    	        return false;
+    	    }
+    	    return true;
+    }
+    @Override
+	public String toString(){
+    	StringBuilder builder = new StringBuilder();
+    	builder.append("Battery [ ");
+    	builder.append(" batteryID " + getId());
+    	builder.append(",  batteryCapacity " + getBatteryCapacity());
+    	builder.append(", batteryLevel" + getBatteryLevel());
+    	builder.append(" ]");
+    	return builder.toString();
+    }
+}

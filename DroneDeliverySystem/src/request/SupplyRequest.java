@@ -26,15 +26,7 @@ public class SupplyRequest implements Request {
 		return this.timeStamp;
 	}
 
-	@Override
-	public void setId(String id) {
-		this.id = id;
-	}
 
-	@Override
-	public void setTimestamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
-	}
 
 	
 }

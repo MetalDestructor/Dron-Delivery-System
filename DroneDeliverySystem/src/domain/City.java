@@ -1,16 +1,25 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class City {
 	private String name;
 	private double x;
 	private double y;
+	//private List<Warehouse> warehouses;
 
 	public City(String name, double x, double y) {
+	//	warehouses=new ArrayList<>();
 		this.name = name;
 		this.x = x;
 		this.y = y;
 	}
 
+	//public void addWarehouse(Warehouse wh){
+	//	warehouses.add(wh);
+	//}
+	
 	public String getName() {
 		return this.name;
 	}

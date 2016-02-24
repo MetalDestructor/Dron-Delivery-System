@@ -1,0 +1,109 @@
+package domain;
+
+import java.util.UUID;
+
+public class Drone {
+
+	private String id;
+	private int batteryCapacity;
+	private int batteryLevel;
+	//capacity measured in weight units
+	private float weightCapacity;
+	//charging rate measured in BU per minutes
+	private int chargingRate;
+	
+	private Location location;
+	//String warehouse; to know where to go back?
+
+
+	public Drone(int batteryCapacity, int chargingRate, float weightCapacity){
+		this.id=UUID.randomUUID().toString();
+		setBatteryCapacity(batteryCapacity);
+		this.batteryLevel=batteryCapacity-(int)usedCharge(0);
+		setChargingRate(chargingRate);
+		setWeightCapacity(weightCapacity);
+	}
+	
+	public int getBatteryCapacity() {
+		return batteryCapacity;
+	}
+
+	public void setBatteryCapacity(int batteryCapacity) {
+		this.batteryCapacity = batteryCapacity;
+	}
+
+	public int getBatteryLevel() {
+		return batteryLevel;
+	}
+
+	public void setBatteryLevel(int batteryLevel) {
+		this.batteryLevel = batteryLevel;
+	}
+
+	public float getWeightCapacity() {
+		return weightCapacity;
+	}
+
+	public void setWeightCapacity(float weightCapacity) {
+		this.weightCapacity = weightCapacity;
+	}
+
+	public int getChargingRate() {
+		return chargingRate;
+	}
+
+	public void setChargingRate(int chargingRate) {
+		this.chargingRate = chargingRate;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public String getId() {
+		return id;
+	}
+	
+	 public float usedCharge(float distance){
+			return getBatteryLevel()-distance;  	
+	    }
+	//TODO 
+	public void move(Location target){}
+	
+	  @Override
+	    public int hashCode(){
+			return id.hashCode();
+		}
+	    @Override
+		public boolean equals(Object obj){
+	    	 if (obj == null) {
+	    	        return false;
+	    	    }
+	    	    if (!Drone.class.isAssignableFrom(obj.getClass())) {
+	    	        return false;
+	    	    }
+	    	    final Drone other = (Drone) obj;
+	    	    
+	    	    if (this.id != other.id) {
+	    	        return false;
+	    	    }
+	    	    return true;
+	    }
+	    @Override
+		public String toString(){
+	    	StringBuilder builder = new StringBuilder();
+	    	builder.append("Drone { ");
+	    	builder.append(" DroneID: " + getId());
+	    	builder.append(", battery Capacity: " + getBatteryCapacity());
+	    	builder.append(", battery Level: " + getBatteryLevel());
+	    	builder.append(", charging Rate: " + getChargingRate());
+	    	builder.append(", WeightCapacity: " + getWeightCapacity());
+	    	builder.append(" }");
+	    	return builder.toString();
+	    }
+
+}
