@@ -1,6 +1,7 @@
 package domain;
 
-
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.UUID;
 
 public class Battery {
@@ -55,13 +56,12 @@ public class Battery {
 		this.batteryCapacity = batteryCapacity;
 	}
 	
-    public int chargingTime(){
-		return (getBatteryCapacity()-getBatteryLevel() )* getChargingRate();
+    public void charge(){
     	
 	}
 
-    public float usedCharge(float distance){
-		return getBatteryLevel()-( distance* getDischargingRate());  	
+    public void use(){
+    	
     }
     
     @Override

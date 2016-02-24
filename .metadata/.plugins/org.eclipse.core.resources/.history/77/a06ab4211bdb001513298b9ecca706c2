@@ -50,9 +50,6 @@ public class Drone {
 		this.location = location;
 	}
 	
-	public float getchargingRate(){
-		return this.chargingRate;
-	}
 	//TODO 
 	public void move(Location target){}
 	

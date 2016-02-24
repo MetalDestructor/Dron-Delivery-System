@@ -60,7 +60,7 @@ public class Battery {
     	
 	}
 
-    public float usedCharge(float distance){
+    public int usedCharge(int distance){
 		return getBatteryLevel()-( distance* getDischargingRate());  	
     }
     
