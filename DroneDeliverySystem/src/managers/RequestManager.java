@@ -18,5 +18,7 @@ public class RequestManager {
 		
 	}
 	//TODO SupplyRequest
-	public void run(SupplyRequest sr){}
+	public void run(request.SupplyRequest sr){
+		
+	}
 }
