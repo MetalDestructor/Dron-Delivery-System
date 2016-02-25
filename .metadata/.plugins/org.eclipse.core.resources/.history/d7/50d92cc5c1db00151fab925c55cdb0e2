@@ -24,20 +24,10 @@ public class Drone {
 		setWeightCapacity(weightCapacity);
 	}
 	
-	public float usedCharge(float distance){
-		return getBatteryLevel()-distance;  	
-    }
- 
-    public int chargingTime(){
-		return (getBatteryCapacity()-getBatteryLevel() )* getChargingRate();
-    	
-    }
 	public int getBatteryCapacity() {
 		return batteryCapacity;
 	}
 
-	
-	
 	public void setBatteryCapacity(int batteryCapacity) {
 		this.batteryCapacity = batteryCapacity;
 	}
@@ -46,6 +36,9 @@ public class Drone {
 		return batteryLevel;
 	}
 
+	public void setBatteryLevel(int batteryLevel) {
+		this.batteryLevel = batteryLevel;
+	}
 
 	public float getWeightCapacity() {
 		return weightCapacity;
@@ -75,7 +68,16 @@ public class Drone {
 		return id;
 	}
 	
+	 public float usedCharge(float distance){
+			return getBatteryLevel()-distance;  	
+	 }
 	 
+	 public int chargingTime(){
+			return (getBatteryCapacity()-getBatteryLevel() )* getChargingRate();
+	    	
+	}
+	 
+
 	@Override
     public int hashCode(){
 		return id.hashCode();

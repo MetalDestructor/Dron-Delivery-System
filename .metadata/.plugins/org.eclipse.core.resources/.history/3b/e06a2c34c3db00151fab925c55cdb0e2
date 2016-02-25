@@ -26,27 +26,6 @@ public class DroneManager {
 		}
 	}
 	
-	//TODO DeliveryRequest
-	public boolean canCarrry(DeliveryRequest req, Drone drone){
-		return req.getProduct().getWeight()<drone.getWeightCapacity();
-	}
-	
-	public ArrayList<Drone> chooseDrone(float weight){
-		float w=weight;
-		ArrayList<Drone> listOFDrones=new ArrayList<>();
-		while(drones.lastKey()<w){
-			listOFDrones.add(drones.get(drones.values()));
-			w-= drones.lastKey();
-		}
-		
-		
-		
-		return listOFDrones;
-	}
-	
-	public int searchRightDrone(TreeMap<Float,Drone> dr,int key,int min, int max){
-		return 0;
-	}
 	public void addDrone(Drone drone){
 		drones.put(drone.getWeightCapacity(),drone);
 	}
