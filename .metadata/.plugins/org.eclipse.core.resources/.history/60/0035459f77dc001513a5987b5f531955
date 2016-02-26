@@ -3,7 +3,7 @@ package domain;
 public class Product {
 
 	private String productName;
-	private double productWeight;
+	private float productWeight;
 	
 	Product(String product, double d){
 		setProductName(product);

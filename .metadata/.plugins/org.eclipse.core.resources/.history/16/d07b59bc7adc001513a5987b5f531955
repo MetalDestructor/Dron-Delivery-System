@@ -11,11 +11,11 @@ public class OrderManager {
 	
 	city.findClosestWarehouse(){}
 	
-	//warehouse.findProduct(){}
+	warehouse.findProduct(){}
 	
-	//warehouse.productIsFound(){}
+	warehouse.productIsFound(){}
 	
-	//warehouse.updateWarehouse(){}
+	warehouse.updateWarehouse(){}
 
 	//new class?
 	clientProfil.message(){}

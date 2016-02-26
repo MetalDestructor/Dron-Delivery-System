@@ -3,11 +3,11 @@ package domain;
 public class Product {
 
 	private String productName;
-	private double productWeight;
+	private float productWeight;
 	
-	Product(String product, double d){
+	Product(String product, float weight){
 		setProductName(product);
-		setProductWeight(d);
+		setProductWeight(weight);
 	}
 
 	public String getProductName() {
@@ -18,12 +18,12 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public double getProductWeight() {
+	public float getProductWeight() {
 		return productWeight;
 	}
 
-	public void setProductWeight(double d) {
-		this.productWeight = d;
+	public void setProductWeight(float productWeight) {
+		this.productWeight = productWeight;
 	}
 	
 	
