@@ -25,9 +25,11 @@ public class Warehouse {
 	}
 	
 	public Product findProduct(String productName){
+		
 	}
 	
-	productIsFound(){}
+	public boolean productIsFound(){
+	}
 	
 	
 	
